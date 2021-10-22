@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		1. Setter DI
+		2. Constructor DI
+		3. Bean DI
+	 -->
+
+    <bean id="hello" 
+    		class="com.h2kinfosys.spring.HelloSpring" 
+    		init-method="start" 
+    		destroy-method="end" 
+    		scope="prototype">  
+    	<constructor-arg name="language" value="English" />
+        <property name="message" value="Welcome to Spring" />
+    </bean>
+    
+    <bean id="editpad" class="com.h2kinfosys.spring.Editpad">
+    	<property name="language" value="English" />
+    	<property name="spellChecker">
+    		<bean class="com.h2kinfosys.spring.SpellChecker">
+     			<property name="dictionaryName" value="Oxford" />
+   			</bean>
+    	</property>
+    </bean>
+    
+   
+
+
+</beans>
+
